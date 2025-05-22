@@ -12,7 +12,7 @@ interface FeatureCardProps {
 const FeatureCard = ({ title, description, icon, className }: FeatureCardProps) => {
   return (
     <motion.div 
-      className={`feature-card ${className}`}
+      className={`feature-card rounded-lg shadow-sm ${className}`}
       whileHover={{ scale: 1.03 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >

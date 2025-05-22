@@ -5,6 +5,7 @@ import { Github, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import AnimatedText from "@/components/AnimatedText";
 
 // Define project types
 interface Project {
@@ -52,19 +53,19 @@ const ProjectsSection = () => {
   useScrollAnimation();
   
   return (
-    <section id="projects" className="py-20 md:py-32 relative">
-      <div className="container max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 animate-on-scroll">
+    <section id="projects" className="py-10 md:py-16 relative">
+      <div className="max-w-3xl mx-auto">
+        <div className="mb-10 animate-on-scroll">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Featured Projects
+            <AnimatedText text="Featured Projects" className="block" />
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground">
             Here are some of my recent projects that showcase my skills and experience.
             Each project reflects my passion for creating efficient and user-friendly applications.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="space-y-8">
           {projects.map((project, index) => (
             <div 
               key={project.id} 
@@ -73,13 +74,13 @@ const ProjectsSection = () => {
             >
               <Card 
                 className={cn(
-                  "project-card h-full flex flex-col",
+                  "project-card overflow-hidden",
                   hoveredId === project.id ? "scale-[1.02]" : ""
                 )}
                 onMouseEnter={() => setHoveredId(project.id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 md:h-64 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BackgroundParticles } from "@/components/BackgroundParticles";
 import { AppDock } from "@/components/AppDock";
+import ProfileCard from "@/components/ProfileCard";
 
 const Index = () => {
   useScrollAnimation();
@@ -39,20 +40,47 @@ const Index = () => {
       });
     };
   }, []);
+
+  const profileStats = [
+    { value: "+12", label: "Years Experience" },
+    { value: "+46", label: "Projects Completed" },
+    { value: "+20", label: "Happy Clients" },
+  ];
   
   return (
     <div className="min-h-screen relative">
       <BackgroundParticles />
       <Navbar />
       
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <ContactSection />
-      </main>
+      <div className="container max-w-7xl mx-auto px-4 pt-24 lg:flex lg:gap-8">
+        {/* Left Side - Sticky Profile Card (1/3) */}
+        <div className="lg:w-1/3 mb-8 lg:mb-0">
+          <div className="lg:sticky lg:top-24">
+            <ProfileCard 
+              name="Shahina"
+              title="Full-Stack Developer"
+              bio="A seasoned engineer and creative developer who turns complex problems into elegant, intuitive solutions."
+              avatar="/placeholder.svg"
+              stats={profileStats}
+              socialLinks={{
+                github: "https://github.com/",
+                linkedin: "https://linkedin.com/",
+                email: "hello@example.com"
+              }}
+              className="w-full"
+            />
+          </div>
+        </div>
+        
+        {/* Right Side - Scrollable Content (2/3) */}
+        <main className="lg:w-2/3">
+          <AboutSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </main>
+      </div>
       
       <Footer />
       <AppDock />
