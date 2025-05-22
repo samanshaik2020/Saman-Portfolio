@@ -8,11 +8,18 @@ export const useScrollAnimation = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animated");
-            // Optional: If you only want the animation to happen once
-            // observer.unobserve(entry.target);
+            
+            // Add a delay for staggered animations based on data attribute
+            const delay = entry.target.getAttribute("data-delay");
+            if (delay) {
+              entry.target.style.transitionDelay = `${delay}ms`;
+            }
           } else {
-            // Remove the class if you want the animation to repeat
-            // entry.target.classList.remove("animated");
+            // Only remove the class if we want the animation to repeat
+            if (!entry.target.classList.contains("animate-once")) {
+              entry.target.classList.remove("animated");
+              entry.target.style.transitionDelay = "0ms";
+            }
           }
         });
       },
