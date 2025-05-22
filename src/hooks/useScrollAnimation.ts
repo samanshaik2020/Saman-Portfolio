@@ -12,13 +12,15 @@ export const useScrollAnimation = () => {
             // Add a delay for staggered animations based on data attribute
             const delay = entry.target.getAttribute("data-delay");
             if (delay) {
-              entry.target.style.transitionDelay = `${delay}ms`;
+              // Cast to HTMLElement to access style property
+              (entry.target as HTMLElement).style.transitionDelay = `${delay}ms`;
             }
           } else {
             // Only remove the class if we want the animation to repeat
             if (!entry.target.classList.contains("animate-once")) {
               entry.target.classList.remove("animated");
-              entry.target.style.transitionDelay = "0ms";
+              // Cast to HTMLElement to access style property
+              (entry.target as HTMLElement).style.transitionDelay = "0ms";
             }
           }
         });
