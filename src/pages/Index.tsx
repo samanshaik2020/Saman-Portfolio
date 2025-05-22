@@ -9,6 +9,8 @@ import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { BackgroundParticles } from "@/components/BackgroundParticles";
+import { AppDock } from "@/components/AppDock";
 
 const Index = () => {
   useScrollAnimation();
@@ -39,7 +41,8 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <BackgroundParticles />
       <Navbar />
       
       <main>
@@ -52,6 +55,7 @@ const Index = () => {
       </main>
       
       <Footer />
+      <AppDock />
     </div>
   );
 };

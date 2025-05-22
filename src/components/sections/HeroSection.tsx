@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import AnimatedText from "../AnimatedText";
 import ProfileCard from "../ProfileCard";
 import FeatureCard from "../FeatureCard";
-import { ScrollArea } from "../ui/scroll-area";
 
 const HeroSection = () => {
   const profileStats = [
@@ -19,7 +18,7 @@ const HeroSection = () => {
       className="min-h-screen flex flex-col justify-center relative pt-20 overflow-hidden"
     >
       <div className="container max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="flex flex-col items-start gap-6">
             <div className="text-sm font-medium px-4 py-2 bg-primary/10 text-primary dark:bg-primary/20 rounded-full animate-on-scroll animate-fade">
               Full-Stack Developer
@@ -46,6 +45,21 @@ const HeroSection = () => {
                 </Button>
               </a>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 w-full">
+              <FeatureCard 
+                title="DYNAMIC ANIMATION"
+                description="CUSTOM CSS/FRAMER"
+                className="orange-gradient animate-on-scroll animate-fade"
+                data-delay="300"
+              />
+              <FeatureCard 
+                title="FRAMEWORKS"
+                description="REACT.JS, NEXT.JS, NODE.JS"
+                className="green-gradient animate-on-scroll animate-fade"
+                data-delay="400"
+              />
+            </div>
           </div>
           
           <div className="space-y-4">
@@ -61,21 +75,6 @@ const HeroSection = () => {
                 email: "hello@example.com"
               }}
             />
-            
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <FeatureCard 
-                title="DYNAMIC ANIMATION"
-                description="CUSTOM CSS/FRAMER"
-                className="orange-gradient animate-on-scroll animate-fade"
-                data-delay="300"
-              />
-              <FeatureCard 
-                title="FRAMEWORKS"
-                description="REACT.JS, NEXT.JS, NODE.JS"
-                className="green-gradient animate-on-scroll animate-fade"
-                data-delay="400"
-              />
-            </div>
           </div>
         </div>
       </div>

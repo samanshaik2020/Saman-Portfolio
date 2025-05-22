@@ -28,6 +28,7 @@ export const useScrollAnimation = () => {
       { threshold: 0.1 }
     );
 
+    // Observe all elements with the animate-on-scroll class
     const elements = document.querySelectorAll(".animate-on-scroll");
     elements.forEach((element) => {
       observer.observe(element);

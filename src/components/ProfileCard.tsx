@@ -2,6 +2,7 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 import { Github, Linkedin, Mail, User } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ProfileStat {
   value: string;
@@ -19,6 +20,7 @@ interface ProfileCardProps {
     linkedin?: string;
     email?: string;
   };
+  className?: string;
 }
 
 const ProfileCard = ({
@@ -28,9 +30,15 @@ const ProfileCard = ({
   avatar,
   stats,
   socialLinks,
+  className,
 }: ProfileCardProps) => {
   return (
-    <div className="profile-card animate-on-scroll animate-slide-up">
+    <motion.div 
+      className={`profile-card sticky top-24 ${className}`}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="profile-card-highlight" />
       <div className="p-6">
         <div className="flex gap-4 items-center">
@@ -56,7 +64,7 @@ const ProfileCard = ({
 
         <div className="profile-stats">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-box">
+            <div key={index} className="stat-box animate-on-scroll" data-delay={index * 100}>
               <span className="stat-number">{stat.value}</span>
               <span className="stat-label">{stat.label}</span>
             </div>
@@ -115,7 +123,7 @@ const ProfileCard = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
