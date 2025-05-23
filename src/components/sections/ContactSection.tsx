@@ -51,28 +51,28 @@ const ContactSection = () => {
             
             <div className="flex flex-col gap-4 mb-8">
               <a 
-                href="mailto:contact@shahina.dev" 
+                href="mailto:contact@Saman.dev" 
                 className="flex items-center gap-3 text-lg hover:text-primary transition-colors"
               >
-                <Mail className="w-5 h-5" /> contact@shahina.dev
+                <Mail className="w-5 h-5" /> contact@Saman.dev
               </a>
               
               <a 
-                href="https://github.com/shahina" 
+                href="https://github.com/samanshaik2020" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-lg hover:text-primary transition-colors"
               >
-                <Github className="w-5 h-5" /> github.com/shahina
+                <Github className="w-5 h-5" /> github.com/samanshaik2020
               </a>
               
               <a 
-                href="https://linkedin.com/in/shahina" 
+                href="https://www.linkedin.com/in/saman-shaik-15a85222b/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-lg hover:text-primary transition-colors"
               >
-                <Linkedin className="w-5 h-5" /> linkedin.com/in/shahina
+                <Linkedin className="w-5 h-5" /> linkedin.com/in/saman-shaik-15a85222b
               </a>
             </div>
           </div>

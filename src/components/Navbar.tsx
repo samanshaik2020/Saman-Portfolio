@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,27 +30,37 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between max-w-6xl mx-auto">
         <Link to="/" className="font-display text-lg font-bold">
-          <span className="text-primary">Shahina</span>
+          <span className="text-primary">Saman</span>
           <span className="text-muted-foreground">.dev</span>
         </Link>
         
         <div className="flex items-center space-x-1">
           <nav className="hidden md:flex items-center space-x-1">
-            <a href="#home" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            <button 
+              onClick={() => smoothScrollTo('home')} 
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover:bg-secondary/50 rounded-md">
               Home
-            </a>
-            <a href="#about" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => smoothScrollTo('about')} 
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover:bg-secondary/50 rounded-md">
               About
-            </a>
-            <a href="#projects" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => smoothScrollTo('projects')} 
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover:bg-secondary/50 rounded-md">
               Projects
-            </a>
-            <a href="#skills" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => smoothScrollTo('skills')} 
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover:bg-secondary/50 rounded-md">
               Skills
-            </a>
-            <a href="#contact" className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+            </button>
+            <button 
+              onClick={() => smoothScrollTo('contact')} 
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors hover:bg-secondary/50 rounded-md">
               Contact
-            </a>
+            </button>
           </nav>
           
           <ThemeToggle />

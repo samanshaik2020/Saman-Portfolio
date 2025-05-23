@@ -14,27 +14,11 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    role: "Senior Front-End Developer",
-    company: "Tech Innovations Inc.",
-    period: "Jan 2022 - Present",
-    description: "Led the development of the company's flagship SaaS product, improving user engagement by 35% through UI/UX improvements and performance optimizations.",
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-  },
-  {
-    id: 2,
-    role: "Full-Stack Developer",
-    company: "Digital Solutions LLC",
-    period: "Mar 2020 - Dec 2021",
-    description: "Developed and maintained multiple client websites and web applications, focusing on responsive design and cross-browser compatibility.",
-    technologies: ["React", "Node.js", "MongoDB", "Express"],
-  },
-  {
-    id: 3,
-    role: "Web Development Intern",
-    company: "StartUp Vision",
-    period: "Jun 2019 - Feb 2020",
-    description: "Assisted in building the front-end of the company website and helped implement new features for their web application.",
-    technologies: ["JavaScript", "HTML/CSS", "jQuery", "Bootstrap"],
+    role: "Web Developer",
+    company: "Creative My Space",
+    period: "6 months",
+    description: "Developed and maintained client websites, implemented responsive designs, and collaborated with the design team to create engaging user interfaces.",
+    technologies: ["React", "JavaScript", "HTML/CSS", "Tailwind CSS"],
   },
 ];
 

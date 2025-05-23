@@ -74,10 +74,94 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust based on your navbar height */
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.3) transparent;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+    cursor: none; /* Hide default cursor when using custom cursor */
+  }
+  
+  /* Custom Scrollbar for Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+  
+  /* Custom cursor styles */
+  .custom-cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    will-change: transform, left, top, scale, opacity;
+    transition: width 0.1s, height 0.1s;
+  }
+  
+  html.dark .custom-cursor {
+    background-color: #fff;
+  }
+  
+  .cursor-trail {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    will-change: transform, left, top, scale;
+    transition: border-color 0.3s;
+  }
+  
+  html.dark .cursor-trail {
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Ensure clickable elements have proper hover states even with custom cursor */
+  a, button, .clickable {
+    cursor: none;
+    transition: transform 0.2s;
+  }
+  
+  a:hover, button:hover, .clickable:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Fix for mobile devices */
+  @media (max-width: 768px) {
+    body {
+      cursor: auto !important;
+    }
+    
+    .custom-cursor,
+    .cursor-trail {
+      display: none !important;
+    }
   }
 
   .glass {
@@ -199,6 +283,37 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Section animations */
+.section-animated {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scrolling utilities */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
 }
 
 .stagger-animation.animated > *:nth-child(1) { transition-delay: 0ms; }

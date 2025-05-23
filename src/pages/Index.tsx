@@ -8,43 +8,26 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useScrollAnimation, useSectionAnimation } from "@/hooks/useScrollAnimation";
 import { BackgroundParticles } from "@/components/BackgroundParticles";
 import { AppDock } from "@/components/AppDock";
 import ProfileCard from "@/components/ProfileCard";
 
 const Index = () => {
-  useScrollAnimation();
+  // Apply scroll animations to elements with animate-on-scroll class
+  useScrollAnimation({
+    threshold: 0.1,
+    rootMargin: "-50px",
+    once: false
+  });
   
-  // Smooth scrolling for anchor links
-  useEffect(() => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href')?.substring(1);
-        const targetElement = document.getElementById(targetId || '');
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-    
-    return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', () => {});
-      });
-    };
-  }, []);
+  // Apply smooth section transitions
+  useSectionAnimation();
 
   const profileStats = [
-    { value: "+12", label: "Years Experience" },
-    { value: "+46", label: "Projects Completed" },
-    { value: "+20", label: "Happy Clients" },
+    { value: "+1", label: "Years Experience" },
+    { value: "+7", label: "Projects Completed" },
+    { value: "+3", label: "Happy Clients" },
   ];
   
   return (
@@ -57,14 +40,14 @@ const Index = () => {
         <div className="lg:w-1/3 mb-8 lg:mb-0">
           <div className="lg:sticky lg:top-24">
             <ProfileCard 
-              name="Shahina"
+              name="Saman"
               title="Full-Stack Developer"
               bio="A seasoned engineer and creative developer who turns complex problems into elegant, intuitive solutions."
               avatar="/placeholder.svg"
               stats={profileStats}
               socialLinks={{
-                github: "https://github.com/",
-                linkedin: "https://linkedin.com/",
+                github: "https://github.com/samanshaik2020",
+                linkedin: "https://www.linkedin.com/in/saman-shaik-15a85222b/",
                 email: "hello@example.com"
               }}
               className="w-full"
@@ -74,6 +57,9 @@ const Index = () => {
         
         {/* Right Side - Scrollable Content (2/3) */}
         <main className="lg:w-2/3">
+          <div id="home">
+            <HeroSection />
+          </div>
           <AboutSection />
           <ProjectsSection />
           <SkillsSection />
