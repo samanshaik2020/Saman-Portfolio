@@ -42,9 +42,13 @@ const ProfileCard = ({
       <div className="profile-card-highlight" />
       <div className="p-6">
         <div className="flex flex-col items-center text-center mb-6">
-          <Avatar className="w-32 h-32 mb-4 border-2 border-primary/20">
+          <Avatar className="w-32 h-32 mb-4 border-2 border-primary/20 overflow-hidden ring-2 ring-primary/10 ring-offset-2 ring-offset-background shadow-lg">
             {avatar ? (
-              <AvatarImage src={avatar} alt={name} />
+              <AvatarImage 
+                src={avatar} 
+                alt={name} 
+                className="object-cover object-center w-full h-full" 
+              />
             ) : (
               <AvatarFallback className="bg-primary/10 text-primary">
                 <User className="w-12 h-12" />

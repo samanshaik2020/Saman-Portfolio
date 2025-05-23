@@ -43,7 +43,7 @@ const Index = () => {
               name="Saman"
               title="Full-Stack Developer"
               bio="A seasoned engineer and creative developer who turns complex problems into elegant, intuitive solutions."
-              avatar="/placeholder.svg"
+              avatar="/Img.png"
               stats={profileStats}
               socialLinks={{
                 github: "https://github.com/samanshaik2020",
