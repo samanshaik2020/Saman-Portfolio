@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
@@ -74,8 +73,8 @@ const ProjectsSection = () => {
           </p>
         </div>
         
-        <div className="space-y-8">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {projects.slice(0, 4).map((project, index) => (
             <div 
               key={project.id} 
               className="animate-on-scroll" 
